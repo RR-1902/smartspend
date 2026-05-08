@@ -6,6 +6,8 @@ The product direction is inspired by modern mobile finance apps and habit-buildi
 
 ![SmartSpend dark dashboard preview](static/images/dashboard-dark-preview.png)
 
+![SmartSpend profile preferences preview](static/images/profile-light-preview.png)
+
 ## Features
 
 - Splash screen with animated mascot branding
