@@ -4,6 +4,8 @@ Smart Expense Tracker is a polished, mobile-first Django fintech web app for tra
 
 The product direction is inspired by modern mobile finance apps and habit-building products: soft gradients, rounded cards, smooth motion, compact charts, dark/light mode, and a friendly mascot that appears during important user moments.
 
+![SmartSpend dark dashboard preview](static/images/dashboard-dark-preview.png)
+
 ## Features
 
 - Splash screen with animated mascot branding
