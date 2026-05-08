@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Analytics{% endblock %}
+{% block page_heading %}Analytics{% endblock %}
+{% block content %}
+{{ charts.category_labels|json_script:"category-labels" }}
+{{ charts.category_values|json_script:"category-values" }}
+{{ charts.line_labels|json_script:"line-labels" }}
+{{ charts.line_values|json_script:"line-values" }}
+{{ charts.palette|json_script:"chart-palette" }}
+<section class="analytics-intro glass-card" data-aos="fade-up">
+  <div>
+    <p class="eyebrow">Insight studio</p>
+    <h2>Compact graphs, clearer money signals</h2>
+  </div>
+  <span class="insight-pill">Live charts</span>
+</section>
+<section class="analytics-grid compact-analytics">
+  <article class="panel-card chart-card" data-aos="fade-up"><p class="eyebrow">Donut</p><h2>Category donut</h2><canvas id="donutChart"></canvas></article>
+  <article class="panel-card chart-card" data-aos="fade-up" data-aos-delay="80"><p class="eyebrow">Pie</p><h2>Budget pie</h2><canvas id="pieChart"></canvas></article>
+  <article class="panel-card chart-card" data-aos="fade-up" data-aos-delay="120"><p class="eyebrow">Line</p><h2>Daily rhythm</h2><canvas id="lineChart"></canvas></article>
+  <article class="panel-card chart-card" data-aos="fade-up" data-aos-delay="160"><p class="eyebrow">Bar</p><h2>Category bars</h2><canvas id="barChart"></canvas></article>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>window.SmartCharts && window.SmartCharts.analytics();</script>
+{% endblock %}

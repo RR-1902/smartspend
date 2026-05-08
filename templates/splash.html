@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Smart Expense Tracker{% endblock %}
+{% block content %}
+<section class="splash-screen">
+  <div class="splash-card" data-aos="zoom-in">
+    <img src="{% static 'svg/mascot.svg' %}" class="splash-mascot floating" alt="Saving bear mascot">
+    <p class="eyebrow">Smart Expense Tracker</p>
+    <h1>Spend lighter. Save brighter.</h1>
+    <p class="muted">A playful fintech dashboard for expenses, goals, streaks, and reports.</p>
+    <div class="auth-actions">
+      <a class="btn smart-btn" href="{% url 'onboarding' %}">Get started</a>
+      <a class="btn ghost-btn" href="{% url 'login' %}">Log in</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

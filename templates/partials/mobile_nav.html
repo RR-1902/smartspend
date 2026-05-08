@@ -1,0 +1,7 @@
+<nav class="mobile-nav" aria-label="Primary">
+  <a href="{% url 'dashboard' %}"><i data-lucide="home"></i><span>Home</span></a>
+  <a href="{% url 'expenses' %}"><i data-lucide="receipt-text"></i><span>Spend</span></a>
+  <a class="mobile-fab" href="{% url 'expense_add' %}" aria-label="Add expense"><i data-lucide="plus"></i></a>
+  <a href="{% url 'analytics' %}"><i data-lucide="pie-chart"></i><span>Stats</span></a>
+  <a href="{% url 'profile' %}"><i data-lucide="user"></i><span>You</span></a>
+</nav>

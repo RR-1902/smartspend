@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Expenses{% endblock %}
+{% block page_heading %}Expenses{% endblock %}
+{% block content %}
+<section class="page-split">
+  <article class="panel-card sticky-form" data-aos="fade-up">
+    <div class="section-title">
+      <div>
+        <p class="eyebrow">Smart capture</p>
+        <h2>Add expense</h2>
+      </div>
+    </div>
+    <div class="add-mascot-wrap">
+      <img src="{% static 'svg/mascot.svg' %}" class="add-mascot" alt="Saving mascot">
+      <div>
+        <strong>Ready to log it?</strong>
+        <small>I will cheer when your expense is saved.</small>
+      </div>
+    </div>
+    <form method="post" action="{% url 'expense_add' %}" class="smart-form expense-smart-form">
+      {% csrf_token %}
+      {% for field in form %}
+        <label class="floating-label">{{ field }}<span>{{ field.label }}</span>{{ field.errors }}</label>
+        {% if field.name == 'title' %}<div class="ai-chip" id="aiPrediction">AI Suggested: Other</div>{% endif %}
+      {% endfor %}
+      <button class="btn smart-btn w-100 mascot-submit" type="submit">Save expense</button>
+    </form>
+  </article>
+  <article class="panel-card" data-aos="fade-up" data-aos-delay="120">
+    <div class="section-title">
+      <div>
+        <p class="eyebrow">Transaction garden</p>
+        <h2>All expenses</h2>
+      </div>
+    </div>
+    <div class="expense-list tall-list">
+      {% for expense in expenses %}
+        <div class="expense-row lift-row">
+          <span class="category-pill">{{ expense.category }}</span>
+          <div><strong>{{ expense.title }}</strong><small>{{ expense.date }} • {{ expense.notes|default:'No notes' }}</small></div>
+          <b>Rs. {{ expense.amount }}</b>
+          <div class="row-actions">
+            <a href="{% url 'expense_edit' expense.pk %}" aria-label="Edit"><i data-lucide="pencil"></i></a>
+            <a href="{% url 'expense_delete' expense.pk %}" aria-label="Delete"><i data-lucide="trash-2"></i></a>
+          </div>
+        </div>
+      {% empty %}
+        <div class="empty-state"><img src="{% static 'svg/empty.svg' %}" alt=""><h3>No expenses yet</h3><p>Your mascot is ready when you are.</p></div>
+      {% endfor %}
+    </div>
+  </article>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block page_heading %}{{ title }}{% endblock %}
+{% block content %}
+<section class="center-panel">
+  <article class="panel-card narrow-card" data-aos="zoom-in">
+    <p class="eyebrow">Transaction editor</p>
+    <h2>{{ title }}</h2>
+    <div class="add-mascot-wrap">
+      <img src="{% static 'svg/mascot.svg' %}" class="add-mascot" alt="Saving mascot">
+      <div>
+        <strong>Nice and tidy.</strong>
+        <small>Your tracker updates with a tiny celebration.</small>
+      </div>
+    </div>
+    <form method="post" class="smart-form expense-smart-form">
+      {% csrf_token %}
+      {% for field in form %}
+        <label class="floating-label">{{ field }}<span>{{ field.label }}</span>{{ field.errors }}</label>
+        {% if field.name == 'title' %}<div class="ai-chip" id="aiPrediction">AI Suggested: Other</div>{% endif %}
+      {% endfor %}
+      <button class="btn smart-btn w-100 mascot-submit" type="submit">Save changes</button>
+    </form>
+  </article>
+</section>
+{% endblock %}

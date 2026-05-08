@@ -1,0 +1,14 @@
+<header class="topbar">
+  <div>
+    <p class="eyebrow">Welcome back</p>
+    <h1>{% block page_heading %}Smart Expense Tracker{% endblock %}</h1>
+  </div>
+  <div class="topbar-actions">
+    <button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme"><i data-lucide="moon-star"></i></button>
+    <a class="icon-btn" href="{% url 'expense_add' %}" aria-label="Add expense"><i data-lucide="plus"></i></a>
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <button class="icon-btn" type="submit" aria-label="Logout"><i data-lucide="log-out"></i></button>
+    </form>
+  </div>
+</header>

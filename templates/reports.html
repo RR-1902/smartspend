@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Reports{% endblock %}
+{% block page_heading %}Reports{% endblock %}
+{% block content %}
+<section class="reports-hero panel-card" data-aos="fade-up">
+  <div>
+    <p class="eyebrow">Professional exports</p>
+    <h2>Download clean spending reports</h2>
+    <p class="muted">Total tracked: Rs. {{ total }}</p>
+  </div>
+  <div class="report-actions">
+    <a class="btn smart-btn" href="{% url 'export_csv' %}"><i data-lucide="table"></i> CSV</a>
+    <a class="btn ghost-btn" href="{% url 'export_pdf' %}"><i data-lucide="file-text"></i> PDF</a>
+  </div>
+</section>
+<section class="panel-card" data-aos="fade-up">
+  <div class="section-title"><div><p class="eyebrow">Preview</p><h2>Latest entries</h2></div></div>
+  <div class="expense-list">
+    {% for expense in expenses %}
+      <div class="expense-row"><span class="category-pill">{{ expense.category }}</span><div><strong>{{ expense.title }}</strong><small>{{ expense.date }}</small></div><b>Rs. {{ expense.amount }}</b></div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

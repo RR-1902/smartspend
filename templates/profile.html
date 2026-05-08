@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block page_heading %}Profile{% endblock %}
+{% block content %}
+<section class="page-split">
+  <article class="profile-card glass-card" data-aos="fade-up">
+    <img src="{% static 'svg/mascot.svg' %}" class="profile-avatar floating" alt="">
+    <h2>{{ user.username }}</h2>
+    <p class="muted">Level {{ profile.level }} Saver</p>
+    <div class="stat-stack">
+      <span><b>{{ profile.saving_streak }}</b> day streak</span>
+      <span><b>{{ profile.xp_points }}</b> XP</span>
+      <span><b>{{ profile.savings_progress }}%</b> goal</span>
+    </div>
+  </article>
+  <article class="panel-card" data-aos="fade-up" data-aos-delay="120">
+    <p class="eyebrow">Money settings</p>
+    <h2>Profile preferences</h2>
+    <form method="post" class="smart-form">
+      {% csrf_token %}
+      {% for field in form %}
+        {% if field.name == 'dark_mode' %}
+          <label class="switch-row">{{ field }}<span>{{ field.label }}</span></label>
+        {% else %}
+          <label class="floating-label">{{ field }}<span>{{ field.label }}</span>{{ field.errors }}</label>
+        {% endif %}
+      {% endfor %}
+      <button class="btn smart-btn w-100" type="submit">Save profile</button>
+    </form>
+  </article>
+</section>
+<section class="badge-grid">
+  {% for achievement in achievements %}
+    <article class="badge-card" data-aos="zoom-in"><i data-lucide="{{ achievement.icon }}"></i><h3>{{ achievement.title }}</h3><p>{{ achievement.description }}</p></article>
+  {% endfor %}
+</section>
+{% endblock %}

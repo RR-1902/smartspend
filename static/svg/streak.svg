@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-label="Savings streak illustration">
+  <circle cx="210" cy="160" r="128" fill="#F8F6F2"/>
+  <path d="M210 54c48 44 89 88 58 148-29 56-87 64-119 33-38-37-13-86 24-123 15 28 33 32 37-58Z" fill="#FFC6C6"/>
+  <path d="M210 118c28 26 52 51 34 86-17 33-51 38-70 19-22-22-8-51 14-73 9 16 20 19 22-32Z" fill="#A6D672"/>
+  <rect x="112" y="228" width="196" height="48" rx="24" fill="#1B1B1B"/>
+  <text x="210" y="260" text-anchor="middle" font-family="Nunito,Arial" font-size="24" font-weight="900" fill="#F8F6F2">8 DAY STREAK</text>
+</svg>

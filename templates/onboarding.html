@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Onboarding{% endblock %}
+{% block content %}
+<section class="onboarding-wrap">
+  <div class="onboarding-track">
+    <article class="onboard-card blue-card" data-aos="fade-up">
+      <img src="{% static 'svg/track.svg' %}" alt="" class="onboard-art">
+      <h1>Track expenses smartly</h1>
+      <p>Capture every rupee with friendly cards, smart suggestions, and calm visual feedback.</p>
+    </article>
+    <article class="onboard-card green-card" data-aos="fade-up" data-aos-delay="120">
+      <img src="{% static 'svg/streak.svg' %}" alt="" class="onboard-art">
+      <h1>Build saving habits</h1>
+      <p>Earn XP, maintain streaks, unlock badges, and watch goals become tiny daily wins.</p>
+    </article>
+    <article class="onboard-card purple-card" data-aos="fade-up" data-aos-delay="240">
+      <img src="{% static 'svg/analytics.svg' %}" alt="" class="onboard-art">
+      <h1>Analyze your spending</h1>
+      <p>Animated charts reveal categories, trends, and patterns without making money feel heavy.</p>
+    </article>
+  </div>
+  <div class="onboard-actions">
+    <a class="btn smart-btn" href="{% url 'signup' %}">Create account</a>
+    <a class="btn ghost-btn" href="{% url 'login' %}">I already have one</a>
+  </div>
+</section>
+{% endblock %}

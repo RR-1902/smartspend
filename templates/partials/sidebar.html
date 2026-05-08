@@ -1,0 +1,20 @@
+{% load static %}
+<aside class="sidebar">
+  <a class="brand-mark" href="{% url 'dashboard' %}" aria-label="Smart Expense Tracker">
+    <img src="{% static 'svg/mascot.svg' %}" alt="" class="brand-mascot">
+    <span>SmartSpend</span>
+  </a>
+  <nav class="side-nav">
+    <a href="{% url 'dashboard' %}"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+    <a href="{% url 'expenses' %}"><i data-lucide="wallet-cards"></i> Expenses</a>
+    <a href="{% url 'analytics' %}"><i data-lucide="chart-no-axes-combined"></i> Analytics</a>
+    <a href="{% url 'gamification' %}"><i data-lucide="trophy"></i> Rewards</a>
+    <a href="{% url 'reports' %}"><i data-lucide="file-down"></i> Reports</a>
+    <a href="{% url 'profile' %}"><i data-lucide="user-round"></i> Profile</a>
+  </nav>
+  <div class="sidebar-goal">
+    <span>Level {{ user.profile.level }} Saver</span>
+    <div class="mini-progress"><span style="width: {{ user.profile.savings_progress }}%"></span></div>
+    <small>{{ user.profile.savings_progress }}% goal reached</small>
+  </div>
+</aside>

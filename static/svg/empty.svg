@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" role="img" aria-label="Empty wallet illustration">
+  <rect x="58" y="70" width="244" height="142" rx="36" fill="#F8F6F2"/>
+  <rect x="82" y="94" width="196" height="92" rx="28" fill="#8CC8FF"/>
+  <circle cx="244" cy="140" r="24" fill="#FFC6C6"/>
+  <path d="M130 128h70M130 154h46" stroke="#1B1B1B" stroke-width="12" stroke-linecap="round"/>
+  <path d="M136 54c18-24 65-24 84 0" fill="none" stroke="#A6D672" stroke-width="14" stroke-linecap="round"/>
+</svg>

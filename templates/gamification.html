@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Rewards{% endblock %}
+{% block page_heading %}Rewards{% endblock %}
+{% block content %}
+<section class="reward-hero glass-card" data-aos="fade-up">
+  <img src="{% static 'svg/streak.svg' %}" class="reward-mascot floating" alt="">
+  <div>
+    <p class="eyebrow">Gamified savings</p>
+    <h2>Level {{ profile.level }} Saver</h2>
+    <p class="muted">{{ profile.xp_points }} XP • {{ profile.saving_streak }} day streak • {{ profile.savings_progress }}% goal complete</p>
+    <div class="big-progress"><span style="width: {{ profile.savings_progress }}%"></span></div>
+  </div>
+</section>
+<section class="badge-grid">
+  {% for achievement in achievements %}
+    <article class="badge-card" data-aos="zoom-in">
+      <i data-lucide="{{ achievement.icon }}"></i>
+      <h3>{{ achievement.title }}</h3>
+      <p>{{ achievement.description }}</p>
+    </article>
+  {% endfor %}
+</section>
+{% endblock %}

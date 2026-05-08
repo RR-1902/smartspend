@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<section class="auth-layout">
+  <div class="auth-visual" data-aos="fade-right">
+    <img src="{% static 'svg/mascot.svg' %}" class="auth-art floating" alt="Mascot">
+    <h1>Welcome back, saver.</h1>
+    <p>Jump into your dashboard and keep the streak alive.</p>
+  </div>
+  <div class="auth-panel" data-aos="fade-left">
+    <p class="eyebrow">Login</p>
+    <h2>Your money cockpit is ready</h2>
+    <form method="post" class="smart-form">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      {% for field in form %}
+        <label class="floating-label">{{ field }}<span>{{ field.label }}</span>{{ field.errors }}</label>
+      {% endfor %}
+      <button class="btn smart-btn w-100" type="submit">Enter dashboard</button>
+    </form>
+    <p class="auth-switch">New here? <a href="{% url 'signup' %}">Create your account</a></p>
+  </div>
+</section>
+{% endblock %}

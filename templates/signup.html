@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Signup{% endblock %}
+{% block content %}
+<section class="auth-layout">
+  <div class="auth-visual green-card" data-aos="fade-right">
+    <img src="{% static 'svg/streak.svg' %}" class="auth-art floating" alt="Savings streak mascot">
+    <h1>Start your saver arc.</h1>
+    <p>We will preload a few demo transactions so the product feels alive from the first click.</p>
+  </div>
+  <div class="auth-panel" data-aos="fade-left">
+    <p class="eyebrow">Signup</p>
+    <h2>Create SmartSpend account</h2>
+    <form method="post" class="smart-form">
+      {% csrf_token %}
+      {% for field in form %}
+        <label class="floating-label">{{ field }}<span>{{ field.label }}</span>{{ field.errors }}</label>
+      {% endfor %}
+      <button class="btn smart-btn w-100" type="submit">Launch tracker</button>
+    </form>
+    <p class="auth-switch">Already saving? <a href="{% url 'login' %}">Log in</a></p>
+  </div>
+</section>
+{% endblock %}
